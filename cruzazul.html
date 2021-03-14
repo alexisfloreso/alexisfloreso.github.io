@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cruz Azul</title>
+    <title>Document</title>
 </head>
 <style>
     body{
@@ -13,7 +13,6 @@
     }
 
     div:not(.stars){
-        margin: 0;
         top: 25%;
         height: 20rem;
         width: 20rem;
@@ -22,19 +21,14 @@
         position: relative;
         text-align: center;
         margin: auto;
-        border: 5px solid tomato;
-        transition: (background-color 3s, 
-        border-color 2s);
+        border: 4px groove tomato;
+        transition: background-color 2s ease-out,border-color 2s ease-out;
+        box-shadow: 0px 6px 6px 6px;
     }
-    .stars{
-        transition: color 1s;
-    }
-    div:hover .stars{
-        color: rgb(255, 255, 27);
-    }
+    
     div:not(.stars):hover{
         background-color: blue;
-        border-color: white;
+        border-color: blue;
     }
 
     div:not(.stars)::before{
@@ -90,7 +84,21 @@
         font-weight:bolder;
     }
 
-    .logo{
+    h1::before{
+        display: block;
+        color: tomato;
+        position: relative;
+        top: 20rem;
+        content: "ESTE AÑO ES EL BUENO";
+        font-family: cursive;
+        transition: color 2s ease-out;
+    }
+
+    div:not(.stars):hover h1::before{
+        color: white;
+    }
+
+    .cross{
         height: 6.5rem;
         width: 6.5rem;
         left: 0;
@@ -104,7 +112,7 @@
         z-index: 1;
     }
     
-    .logo::before{
+    .cross::before{
         content: '';
         background-color: #0f5d9d;
         width: 1.8rem;
@@ -116,10 +124,9 @@
         top: 0;
         bottom: 0; 
         transition: background-color 2s;
-
     }
     
-    .logo::after{
+    .cross::after{
         content: '';
         background-color: #0f5d9d;
         width: 5rem;
@@ -137,8 +144,17 @@
         color: white;
         font-size: 2rem;
         position: absolute;
+        transition: color 2s;
+        -moz-user-select: none; 
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;         
     }
     
+    div:hover .stars{
+        color: rgb(255, 255, 27);
+    }
+
     .stars:nth-child(1){
         top: 65px;
         right: 275px;
@@ -176,10 +192,7 @@
     .stars:nth-child(8){
         top: 65px;
         right: 20px;
-    }
-    
-
-    
+    }    
 </style>
 <body>
     <div>
@@ -191,9 +204,9 @@
         <div class="stars">★</div>
         <div class="stars">★</div>
         <div class="stars">★</div>
-        <p class="logo"></p>
+        <p class="cross"></p>
         <span></span>
+        <h1></h1>
     </div>
-        
 </body>
 </html>
