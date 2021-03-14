@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: tomato;
+        height: 90vh;
+    }
+
+    div:not(.stars){
+        margin: 0;
+        top: 25%;
+        height: 20rem;
+        width: 20rem;
+        background-color: #0f5d9d;
+        border-radius: 100%;
+        position: relative;
+        text-align: center;
+        margin: auto;
+        border: 5px solid tomato;
+        transition: (background-color 3s, 
+        border-color 2s);
+    }
+    .stars{
+        transition: color 1s;
+    }
+    div:hover .stars{
+        color: rgb(255, 255, 27);
+    }
+    div:not(.stars):hover{
+        background-color: blue;
+        border-color: white;
+    }
+
+    div:not(.stars)::before{
+        content: '';
+        background-color: white;
+        border: 1rem solid #fff;
+        border-radius: 100%;
+        width: 14rem;
+        height: 14rem;
+        left: 0;
+        right: 0;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+    }
+
+    div:not(.stars)::after{
+        content: '';
+        background-color: #EE3A43;
+        width: 10rem;
+        height: 10rem;
+        left: 0;
+        right: 0;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+    }
+
+    span::before{
+        content: "DEPORTIVO";
+        left: 5rem;
+        position: relative;
+        margin-top: 35px;
+        top: 3.8rem;
+        color: #0f5d9d;
+        letter-spacing: 5px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-weight:bolder;
+    }
+
+    span::after{
+        content: "CRUZ AZUL";
+        position: relative;
+        margin: auto;
+        margin-top: 35px;
+        top: 15rem;
+        right: 4.4rem;
+        color: #0f5d9d;
+        letter-spacing: 5px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-weight:bolder;
+    }
+
+    .logo{
+        height: 6.5rem;
+        width: 6.5rem;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        background-color: white;
+        border-radius: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+    
+    .logo::before{
+        content: '';
+        background-color: #0f5d9d;
+        width: 1.8rem;
+        height: 5rem;
+        left: 0;
+        right: 0;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0; 
+        transition: background-color 2s;
+
+    }
+    
+    .logo::after{
+        content: '';
+        background-color: #0f5d9d;
+        width: 5rem;
+        height: 1.8rem;
+        left: 0;
+        right: 0;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0; 
+        transition: background-color 2s;
+    }
+
+    .stars{
+        color: white;
+        font-size: 2rem;
+        position: absolute;
+    }
+    
+    .stars:nth-child(1){
+        top: 65px;
+        right: 275px;
+    }
+
+    .stars:nth-child(2){
+        top: 32px;
+        right: 250px;
+    }
+
+    .stars:nth-child(3){
+        top: 6px;
+        right: 216px;
+    }
+
+    .stars:nth-child(4){
+        top: -8px;
+        right: 170px;
+    }
+
+    .stars:nth-child(5){
+        top: -8px;
+        right: 120px;
+    }
+
+    .stars:nth-child(6){
+        top: 6px;
+        right: 82px;
+    }
+
+    .stars:nth-child(7){
+        top: 32px;
+        right: 46px;
+    }
+    .stars:nth-child(8){
+        top: 65px;
+        right: 20px;
+    }
+    
+
+    
+</style>
+<body>
+    <div>
+        <div class="stars">★</div>
+        <div class="stars">★</div>
+        <div class="stars">★</div>
+        <div class="stars">★</div>
+        <div class="stars">★</div>
+        <div class="stars">★</div>
+        <div class="stars">★</div>
+        <div class="stars">★</div>
+        <p class="logo"></p>
+        <span></span>
+    </div>
+        
+</body>
+</html>
