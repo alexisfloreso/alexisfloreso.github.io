@@ -1,149 +1,175 @@
-<!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargar CSV y Mostrar Datos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Estilos para los nombres */
-        .nombre-item {
-            cursor: pointer;
-            font-weight: bold;
-            text-align: center;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 5px;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .nombre-item:hover {
-            opacity: 0.8;
-        }
-        /* Clases de color alternadas */
-        .bg-custom-1 { background-color: #007bff; } /* Azul */
-        .bg-custom-2 { background-color: #28a745; } /* Verde */
-        .bg-custom-3 { background-color: #ffc107; } /* Amarillo */
-        .bg-custom-4 { background-color: #dc3545; } /* Rojo */
-        .bg-custom-5 { background-color: #17a2b8; } /* Celeste */
-
-        /* Estilos de la tabla */
-        .table-container {
-            border-radius: 10px;
-            padding: 20px;
-            background: #f8f9fa;
-        }
-
-        /* Estilos para el modal */
-        .modal-header {
-            background: #343a40;
-            color: white;
-        }
-        
-                /* Ocultar elementos cuando no coinciden con la búsqueda */
-        .hidden {
-            display: none !important;
-        }
-    </style>
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Portafolio de trabajo</title>
 </head>
-<body class="container mt-4">
+<body>
+    <div id="cabecera">
+        <h4>PORTAFOLIO DE TRABAJO</h4>
+        <div>
+            Soy egresado de la Facultad de Ciencias de la Computación
+            por la Benemérita Universidad Autónoma de Puebla.
+            <br> <br>
+            Bienvenido a mi portafolio. Aquí presento algunos de los
+            proyectos en los que he trabajado.
+            <br>
+            Gracias por tu visita.
+        </div>
 
-    <h2 class="text-center mb-3">Cargar Archivo CSV</h2>
-
-    <div class="mb-3">
-        <input type="file" id="csvFile" accept=".csv" class="form-control">
     </div>
-
-    <!-- Buscador -->
-    <input type="text" id="searchInput" class="form-control mb-3" placeholder="Buscar por nombre..." onkeyup="filterNames()">
-
-    <div class="row shadow-lg p-3 rounded table-container" id="table-container"></div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="dataModal" tabindex="-1" aria-labelledby="dataModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="dataModalLabel">Detalles del Registro</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body table-responsive">
-                    <table class="table table-striped table-hover">
-                        <tbody id="modalContent"></tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
+    <div id="contenedor">        
+        <div>
+            PAD
+            <span class="descripcion">
+                <br>
+                Prueba de Admisión y Diagnóstico <br>
+                <img src="img/iconos/image.png" alt="galeria">
+                <a id="pad" onclick="abrirModal(this)" href="#">Ver galería</a>
+                <img src="img/iconos/web.png" alt="sitio web">
+                <a href="#" title="Temporalmente no disponible">Ver sitio web</a>
+            </span>                
+        </div>        
+        <div>
+            SICSTRA
+            <span class="descripcion">
+                <br>
+                Sistema de Seguimiento y Control de Trámites <br>
+                <img src="img/iconos/image.png" alt="galeria">
+                <a id="sicstra" onclick="abrirModal(this)" href="#">Ver galería</a>
+                <img src="img/iconos/web.png" alt="sitio web">
+                <a href="#" title="Temporalmente no disponible">Ver sitio web</a>
+            </span>        
+        </div>
+        <div>
+            PLACII
+            <span class="descripcion">
+                <br>
+                Plataforma Concentradora de Información Institucional <br>
+                <img src="img/iconos/image.png" alt="galeria">
+                <a id="placii" onclick="abrirModal(this)" href="#">Ver galería</a>
+                <img src="img/iconos/web.png" alt="sitio web">
+                <a href="#" title="Temporalmente no disponible">Ver sitio web</a>
+            </span>        
         </div>
     </div>
-    <script>
-        document.getElementById('csvFile').addEventListener('change', function (event) {
-            const file = event.target.files[0];
-            if (!file) return;
+    <div id="pie">
+            <div>
+                <img src="img/iconos/account.png" alt="ICC">
+                ICC. Omar Alexis López Flores <br>
+                <img src="img/iconos/email.png" alt="email:">
+                omaralexislopezflores@gmail.com  <br>
+                <img src="img/iconos/cellphone.png" alt="celular:">
+                222 749 65 47                
+            </div>
+    </div>
 
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const lines = e.target.result.split('\n').slice(1); // Omitir encabezados
-                const data = lines.map(line => line.split(',')).filter(row => row.length === 5);
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="galeria-pad">
+            <div>
+                <img src="img/pad/imagen1.jpg" alt="Imagen no disponible">
+                <span class="foto-descripcion">Vista previa del examen final. (1/8)</span>
+            </div>
+            <div>
+                <img src="img/pad/imagen2.jpg" alt="Imagen no disponible">
+                <span class="foto-descripcion">Creación de anexos para reactivos. (2/8)</span>
+            </div>
+            <div>
+                <img src="img/pad/imagen3.jpg" alt="Imagen no disponible">
+                <span class="foto-descripcion">Creación de reactivo. (3/8)</span>
+            </div>
+            <div>
+                <img src="img/pad/imagen4.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Ensamble y generación de examen final. (4/8)</span>
+            </div>
+            <div>
+                <img src="img/pad/imagen5.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Filtrado y búsqueda de reactivos. (5/8)</span>
+            </div>
+            <div>
+                <img src="img/pad/imagen6.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Paginación de reactivos. (6/8)</span>
+            </div>
+            <div>
+                <img src="img/pad/imagen7.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Asignación de reactivos a profesores validadores. (7/8)</span>            
+            </div>
+            <div>
+                <img src="img/pad/imagen8.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Cambio de área dentro de la misma sesión. (8/8)</span>
+            </div>               
+        </div>
+        <div id="galeria-placii">
+            <div>
+                <img src="img/placii/imagen1.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Formulario para capturar información sobre movilidad estudiantil. (1/6)</span>
+            </div>
+            <div>
+                <img src="img/placii/imagen2.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Formulario para inventario de infraestructura de las dependencias. (2/6)</span>
+            </div>
+            <div>
+                <img src="img/placii/imagen3.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Formulario para inventario de equipo de cómputo de unidades académicas. (3/6)</span>
+            </div>
+            <div>
+                <img src="img/placii/imagen4.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Generación y empaquetado de reportes sobre movilidad estudiantil. (4/6)</span>
+            </div>
+            <div>
+                <img src="img/placii/imagen5.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Generación de formularios dinámicos. (5/6)</span>
+            </div>
+            <div>
+                <img src="img/placii/imagen6.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Asignación de formularios a dependencias. (6/6)</span>
+            </div>            
+        </div>
+        <div id="galeria-sicstra">
+            <div>
+                <img src="img/sicstra/imagen1.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Inicio de sesión. (1/8)</span>
+            </div>
+            <div>
+                <img src="img/sicstra/imagen2.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Listado de solicitudes. (2/8)</span>
+            </div>
+            <div>
+                <img src="img/sicstra/imagen3.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Visor de archivos PDF. (3/8)</span>
+            </div>
+            <div>
+                <img src="img/sicstra/imagen4.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Exportación de solicitudes a PDF. (4/8)</span>
+            </div>
+            <div>
+                <img src="img/sicstra/imagen5.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Creación de expediente. (5/8)</span>
+            </div>
+            <div>
+                <img src="img/sicstra/imagen6.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Lista de oficios. (6/8)</span>
+            </div>      
+            <div>
+                <img src="img/sicstra/imagen7.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Filtrado y creación de oficios. (7/8)</span>
+            </div>   
+            <div>
+                <img src="img/sicstra/imagen8.png" alt="Imagen no disponible">
+                <span class="foto-descripcion">Exportación de oficios a PDF. (8/8)</span>
+            </div>         
+        </div>
+    </div>
+</div>  
 
-                if (data.length < 50) {
-                    alert('El archivo debe tener al menos 50 registros.');
-                    return;
-                }
+    
+<script src="js/script.js" ></script>
 
-                renderTable(data);
-            };
-            reader.readAsText(file);
-        });
-
-        function renderTable(data) {
-            const tableContainer = document.getElementById('table-container');
-            tableContainer.innerHTML = ''; // Limpiar contenido previo
-
-            let col1 = '<div class="col-md-6"><ul class="list-group">';
-            let col2 = '<div class="col-md-6"><ul class="list-group">';
-
-            data.slice(0, 25).forEach((row, index) => {
-                col1 += `<li class="list-group-item list-group-item-action" onclick="showDetails(${index})">${row[0]}</li>`;
-            });
-
-            data.slice(25, 50).forEach((row, index) => {
-                col2 += `<li class="list-group-item list-group-item-action" onclick="showDetails(${index + 25})">${row[0]}</li>`;
-            });
-
-            col1 += '</ul></div>';
-            col2 += '</ul></div>';
-
-            tableContainer.innerHTML = col1 + col2;
-            window.csvData = data; // Guardar datos en variable global
-        }
-
-        function showDetails(index) {
-            const record = window.csvData[index];
-            const content = `
-                <p><strong>Nombre:</strong> ${record[0]}</p>
-                <p><strong>Edad:</strong> ${record[1]}</p>
-                <p><strong>Sexo:</strong> ${record[2]}</p>
-                <p><strong>Ocupación:</strong> ${record[3]}</p>
-                <p><strong>Nivel de Estudios:</strong> ${record[4]}</p>
-            `;
-            document.getElementById('modalContent').innerHTML = content;
-            new bootstrap.Modal(document.getElementById('dataModal')).show();
-        }
-        
-        function filterNames() {
-            const searchValue = document.getElementById('searchInput').value.toLowerCase();
-            const container = document.getElementById('table-container');
-            const names = container.getElementsByClassName('nombre-item');
-
-            Array.from(names).forEach(name => {
-                const text = name.textContent.toLowerCase();
-                name.style.display = text.includes(searchValue) ? '' : 'none';
-            });
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
