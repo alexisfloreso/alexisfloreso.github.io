@@ -50,7 +50,49 @@
             text-align: center;
             padding: 20px 0;
         }
+
+         /* Estilos para los nombres */
+        .nombre-item {
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .nombre-item:hover {
+            opacity: 0.8;
+        }
+        /* Clases de color alternadas */
+        .bg-custom-1 { background-color: #007bff; } /* Azul */
+        .bg-custom-2 { background-color: #28a745; } /* Verde */
+        .bg-custom-3 { background-color: #ffc107; } /* Amarillo */
+        .bg-custom-4 { background-color: #dc3545; } /* Rojo */
+        .bg-custom-5 { background-color: #17a2b8; } /* Celeste */
+
+        /* Estilos de la tabla */
+        .table-container {
+            border-radius: 10px;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        /* Estilos para el modal */
+        .modal-header {
+            background: #343a40;
+            color: white;
+        }
+        
+                /* Ocultar elementos cuando no coinciden con la búsqueda */
+        .hidden {
+            display: none !important;
+        }
     </style>
+
+    <link rel="stylesheet" href="css/estilos.css">
+    
 </head>
 
 <body>
